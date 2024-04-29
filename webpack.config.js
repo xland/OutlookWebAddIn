@@ -19,7 +19,8 @@ module.exports = async (env, options) => {
     entry: {
       polyfill: ["core-js/stable", "regenerator-runtime/runtime"],
       taskpane: ["./src/taskpane/taskpane.ts", "./src/taskpane/taskpane.html"],
-      commands: "./src/commands/commands.ts",
+      dialog: ["./src/dialog/dialog.ts", "./src/dialog/dialog.html"],
+      commands: "./src/commands/commands.js",
     },
     output: {
       clean: true,
@@ -66,7 +67,7 @@ module.exports = async (env, options) => {
             to: "assets/[name][ext][query]",
           },
           {
-            from: "manifest*.json",
+            from: "manifest*.xml",
             to: "[name]" + "[ext]",
             transform(content) {
               if (dev) {
@@ -82,6 +83,11 @@ module.exports = async (env, options) => {
         filename: "commands.html",
         template: "./src/commands/commands.html",
         chunks: ["polyfill", "commands"],
+      }),
+      new HtmlWebpackPlugin({
+        filename: "dialog.html",
+        template: "./src/dialog/dialog.html",
+        chunks: ["polyfill", "dialog"],
       }),
     ],
     devServer: {

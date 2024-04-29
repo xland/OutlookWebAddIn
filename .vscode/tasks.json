@@ -1,15 +1,10 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
   "version": "2.0.0",
   "tasks": [
     {
       "label": "Build (Development)",
       "type": "npm",
       "script": "build:dev",
-      "dependsOn": [
-        "Install"
-      ],
       "group": {
         "kind": "build",
         "isDefault": true
@@ -24,9 +19,6 @@
       "label": "Build (Production)",
       "type": "npm",
       "script": "build",
-      "dependsOn": [
-        "Install"
-      ],
       "group": "build",
       "presentation": {
         "clear": true,
@@ -35,15 +27,66 @@
       }
     },
     {
+      "label": "Debug: Excel Desktop",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "start:desktop",
+        "--",
+        "--app",
+        "excel"
+      ],
+      "presentation": {
+        "clear": true,
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Debug: Outlook Desktop",
       "type": "shell",
       "command": "npm",
       "args": [
         "run",
-        "start",
+        "start:desktop",
         "--",
         "--app",
         "outlook"
+      ],
+      "presentation": {
+        "clear": true,
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Debug: PowerPoint Desktop",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "start:desktop",
+        "--",
+        "--app",
+        "powerpoint"
+      ],
+      "presentation": {
+        "clear": true,
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Debug: Word Desktop",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "start:desktop",
+        "--",
+        "--app",
+        "word"
       ],
       "presentation": {
         "clear": true,
@@ -108,23 +151,6 @@
         "panel": "dedicated"
       },
       "problemMatcher": []
-    },
-    {
-      "label": "Check OS",
-      "type": "shell",
-      "windows": {
-        "command": "echo 'Sideloading in Outlook on Windows is supported'"
-      },
-      "linux": {
-        "command": "echo 'Sideloading on Linux is not supported' && exit 1"
-      },
-      "osx": {
-        "command": "echo 'Sideloading in Outlook on Mac is not supported' && exit 1"
-      },
-      "presentation": {
-        "clear": true,
-        "panel": "dedicated",
-      },
     }
-  ],
+  ]
 }
