@@ -4,8 +4,5 @@
   ],
   "extends": [
     "plugin:office-addins/recommended"
-  ],
-  "rules": {
-    "prettier/prettier": "off"
-  }
+  ]
 }

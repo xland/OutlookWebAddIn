@@ -18,25 +18,25 @@ module.exports = async (env, options) => {
     devtool: "source-map",
     entry: {
       polyfill: ["core-js/stable", "regenerator-runtime/runtime"],
-      taskpane: ["./src/taskpane/taskpane.ts", "./src/taskpane/taskpane.html"],
-      dialog: ["./src/dialog/dialog.ts", "./src/dialog/dialog.html"],
+      taskpane: ["./src/taskpane/taskpane.js", "./src/taskpane/taskpane.html"],
+      dialog: ["./src/dialog/dialog.js", "./src/dialog/dialog.html"],
       commands: "./src/commands/commands.js",
     },
     output: {
       clean: true,
     },
     resolve: {
-      extensions: [".ts", ".html", ".js"],
+      extensions: [".html", ".js"],
     },
     module: {
       rules: [
         {
-          test: /\.ts$/,
+          test: /\.js$/,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader",
             options: {
-              presets: ["@babel/preset-typescript"],
+              presets: ["@babel/preset-env"],
             },
           },
         },
