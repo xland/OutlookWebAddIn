@@ -1,23 +1,27 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
- * See LICENSE in the project root for license information.
- */
+Office.onReady(() => {});
+Office.initialize = function (reason) {};
 
-/* global document, Office */
-
-Office.onReady((info) => {
-  if (info.host === Office.HostType.Outlook) {
-    document.getElementById("sideload-msg").style.display = "none";
-    document.getElementById("app-body").style.display = "flex";
-    document.getElementById("run").onclick = run;
-  }
+window.addEventListener("DOMContentLoaded", () => {
+  let btn1 = document.getElementById("btn1");
+  btn1.addEventListener("click", () => {
+    const item = Office.context.mailbox.item;
+    item.subject.getAsync((e) => {
+      document.getElementById("title").innerHTML = e.value;
+    });
+    item.start.getAsync((e) => {
+      document.getElementById("startTime").innerHTML = e.value.toString();
+    });
+    item.end.getAsync((e) => {
+      document.getElementById("endTime").innerHTML = e.value.toString();
+    });
+  });
+  let btn2 = document.getElementById("btn2");
+  btn2.addEventListener("click", () => {
+    Office.context.mailbox.item.subject.setAsync(``);
+    Office.context.mailbox.item.requiredAttendees.setAsync([]);
+    Office.context.mailbox.item.start.setAsync(new Date());
+    Office.context.mailbox.item.end.setAsync(new Date());
+    Office.context.mailbox.item.location.setAsync("");
+    Office.context.mailbox.item.body.setAsync(``);
+  });
 });
-
-export async function run() {
-  /**
-   * Insert your Outlook code here
-   */
-
-  const item = Office.context.mailbox.item;
-  document.getElementById("item-subject").innerHTML = "<b>Subject:</b> <br/>" + item.subject;
-}

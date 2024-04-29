@@ -4,8 +4,8 @@
   <Version>1.0.0.0</Version>
   <ProviderName>HikLink会议</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="HikLink会议"/>
-  <Description DefaultValue="HikLink会议"/>
+  <DisplayName DefaultValue="HikLink会议" />
+  <Description DefaultValue="HikLink会议" />
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-128.png"/>
   <SupportUrl DefaultValue="https://moa.hikvision.com.cn/abouthiklink"/>
@@ -70,37 +70,7 @@
             <OfficeTab id="TabDefault">
               <Group id="appointmentGroup">
                 <Label resid="GroupLabel"/>
-                <Control xsi:type="Button" id="ActionButton1">
-                  <Label resid="ActionButton.Label1"/>
-                  <Supertip>
-                    <Title resid="ActionButton.Label1"/>
-                    <Description resid="ActionButton.Tooltip1"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
-                  </Icon>
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>action</FunctionName>
-                  </Action>
-                </Control>
                 <Control xsi:type="Button" id="ActionButton2">
-                  <Label resid="ActionButton.Label2"/>
-                  <Supertip>
-                    <Title resid="ActionButton.Label2"/>
-                    <Description resid="ActionButton.Tooltip2"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
-                  </Icon>
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>action</FunctionName>
-                  </Action>
-                </Control>
-                <Control xsi:type="Button" id="ActionButton3">
                   <Label resid="ActionButton.Label"/>
                   <Supertip>
                     <Title resid="ActionButton.Label"/>
@@ -112,7 +82,22 @@
                     <bt:Image size="80" resid="Icon.80x80"/>
                   </Icon>
                   <Action xsi:type="ExecuteFunction">
-                    <FunctionName>action</FunctionName>
+                    <FunctionName>actionSet</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="ActionButton3">
+                  <Label resid="ActionButton.Label2"/>
+                  <Supertip>
+                    <Title resid="ActionButton.Label2"/>
+                    <Description resid="ActionButton.Tooltip2"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="Taskpane.Url" />
                   </Action>
                 </Control>
               </Group>
@@ -132,15 +117,23 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="HikLink会议"/>
-        <bt:String id="ActionButton.Label" DefaultValue="创建会议"/>
-        <bt:String id="ActionButton.Label1" DefaultValue="取消会议"/>
-        <bt:String id="ActionButton.Label2" DefaultValue="会议设置"/>
+        <bt:String id="GroupLabel" DefaultValue="HikLink会议">
+            <bt:Override Locale="en-US" Value="HikLink Metting" />
+        </bt:String>
+        <bt:String id="ActionButton.Label" DefaultValue="添加会议">
+            <bt:Override Locale="en-US" Value="Add Metting" />
+        </bt:String>
+        <bt:String id="ActionButton.Label2" DefaultValue="会议设置">
+            <bt:Override Locale="en-US" Value="Metting Setting" />
+        </bt:String>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="ActionButton.Tooltip" DefaultValue="创建会议"/>
-        <bt:String id="ActionButton.Tooltip1" DefaultValue="取消会议"/>
-        <bt:String id="ActionButton.Tooltip2" DefaultValue="会议设置"/>
+        <bt:String id="ActionButton.Tooltip" DefaultValue="添加会议">
+            <bt:Override Locale="en-US" Value="Add Metting" />
+        </bt:String>
+        <bt:String id="ActionButton.Tooltip2" DefaultValue="会议设置">
+            <bt:Override Locale="en-US" Value="Metting Setting" />
+        </bt:String>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
